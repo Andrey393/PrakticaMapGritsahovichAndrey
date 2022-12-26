@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import helper.DB;
 import model.Settings;
 
-public class SettingsActivity extends AppCompatActivity {
+public class settingsActivity extends AppCompatActivity {
     Spinner lifeMes;
     EditText lifeText;
     EditText address;
@@ -55,7 +55,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
         lifeText.setText(String.valueOf(Settings.lifeValue));
         address.setText(Settings.address);
-        layers.setAdapter(new LayerAdapter(this));
+        layers.setAdapter(new layerAdapter(this));
 
     }
 
@@ -71,7 +71,7 @@ public class SettingsActivity extends AppCompatActivity {
         {
             return;
         }
-        Tile.life = Settings.getLife();
+        tile.life = Settings.getLife();
         DB.helper.setAddress(address.getText().toString());
         Settings.address = address.getText().toString();
         DB.helper.setLife(Settings.lifeValue,Settings.lifeMes);

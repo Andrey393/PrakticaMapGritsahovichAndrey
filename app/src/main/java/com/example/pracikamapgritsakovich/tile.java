@@ -11,15 +11,15 @@ import helper.ApiHelper;
 import helper.DB;
 import model.Settings;
 
-public class Tile {
+public class tile {
     int scale;
     int x;
     int y;
     Bitmap bmp;
-    public static MapView mapView;
+    public static map map;
     public static int life = 200;
 
-    public Tile(int x, int y, int scale, Activity ctx)
+    public tile(int x, int y, int scale, Activity ctx)
     {
         this.x = x;
         this.y = y;
@@ -42,7 +42,7 @@ public class Tile {
                     DB.helper.addTile(x,y,scale,b64, System.currentTimeMillis() / 1000L + life);
                     byte[] jpeg = Base64.decode(b64, Base64.DEFAULT);
                     bmp = BitmapFactory.decodeByteArray(jpeg,0,jpeg.length);
-                    mapView.invalidate();
+                    map.invalidate();
                 }
                 catch (Exception ex)
                 {

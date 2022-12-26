@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".SettingsActivity">
+    tools:context=".settingsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
 
         <Spinner
             android:id="@+id/spin_life"
@@ -52,7 +53,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <Button
@@ -60,6 +62,7 @@
             android:layout_width="100px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/custom_button"
             android:onClick="onOK"
             android:text="ОК" />
 
@@ -73,6 +76,7 @@
             android:layout_width="100px"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/custom_button"
             android:text="Отмена" />
     </LinearLayout>
 
@@ -86,8 +90,9 @@
             android:layout_width="61dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/custom_button"
             android:onClick="onClearCache"
-            android:text="Сброс" />
+            android:text="Сброс кэша" />
     </LinearLayout>
 
     <LinearLayout

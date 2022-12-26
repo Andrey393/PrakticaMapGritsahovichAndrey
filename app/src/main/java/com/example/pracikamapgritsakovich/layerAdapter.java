@@ -14,11 +14,11 @@ import model.Layer;
 import model.Settings;
 import yuku.ambilwarna.AmbilWarnaDialog;
 
-public class LayerAdapter extends BaseAdapter {
+public class layerAdapter extends BaseAdapter {
     Context ctx;
     LayoutInflater inflater;
 
-    public LayerAdapter(Context ctx)
+    public layerAdapter(Context ctx)
     {
         this.ctx = ctx;
         inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);

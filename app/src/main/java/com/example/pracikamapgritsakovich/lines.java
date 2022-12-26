@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import model.Line;
 
-public class Lines {
+public class lines {
     ArrayList<ArrayList> lines = new ArrayList<ArrayList>();
     ArrayList<Line> line = new ArrayList<Line>();
     Paint p;

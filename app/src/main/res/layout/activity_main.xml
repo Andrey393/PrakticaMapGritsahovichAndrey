@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.example.pracikamapgritsakovich.MapView
+    <com.example.pracikamapgritsakovich.map
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,9 +21,9 @@
 
         <Button
             android:id="@+id/but_zoomin"
-            style="@android:style/Widget.Material.Light.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
             android:onClick="onZoomIn"
             android:text="+"
             android:textAlignment="center" />
@@ -37,6 +37,7 @@
             style="@android:style/Widget.Material.Light.Button.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
             android:onClick="onZoomOut"
             android:text="-" />
 
@@ -49,6 +50,7 @@
             style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
             android:onClick="onSettingsClick"
             android:textAlignment="center"
             app:icon="@android:drawable/ic_menu_manage"

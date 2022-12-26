@@ -14,67 +14,67 @@ import helper.DBHelper;
 import model.Settings;
 
 public class MainActivity extends AppCompatActivity {
-    MapView mapView;
+    map map;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DB.helper = new DBHelper(this, "map.db", null, 1);
         DB.helper.getSettings();
-        mapView = findViewById(R.id.mapView);
-        mapView.ctx = (Activity) this;
-        Tile.mapView = mapView;
-        Tile.life = Settings.getLife();
+        map = findViewById(R.id.mapView);
+        map.ctx = (Activity) this;
+        tile.map = map;
+        tile.life = Settings.getLife();
         int level = Settings.level;
-        mapView.offsetX = Settings.offsetX;
-        mapView.offsetY = Settings.offsetY;
+        map.offsetX = Settings.offsetX;
+        map.offsetY = Settings.offsetY;
 
-        for (int i = 0; i < mapView.levels.length; i++)
+        for (int i = 0; i < map.levels.length; i++)
         {
-            if (level == mapView.levels[i])
+            if (level == map.levels[i])
             {
-                mapView.currentLevel = i;
+                map.currentLevel = i;
                 break;
             }
         }
-        mapView.invalidate();
+        map.invalidate();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        DB.helper.updateView(mapView.offsetX,mapView.offsetY,mapView.levels[mapView.currentLevel]);
+        DB.helper.updateView(map.offsetX, map.offsetY, map.levels[map.currentLevel]);
     }
 
     public void onZoomIn(View v)
     {
-        if (mapView.currentLevel == mapView.levels.length - 1)
+        if (map.currentLevel == map.levels.length - 1)
             return;
-        mapView.currentLevel++;
-        mapView.offsetX *= 2;
-        mapView.offsetY *= 2;
-        mapView.offsetX -= mapView.width /2;
-        mapView.offsetY -= mapView.height /2;
-        mapView.l = new ArrayList<Lines>();
-        mapView.invalidate();
+        map.currentLevel++;
+        map.offsetX *= 2;
+        map.offsetY *= 2;
+        map.offsetX -= map.width /2;
+        map.offsetY -= map.height /2;
+        map.l = new ArrayList<lines>();
+        map.invalidate();
     }
 
     public void onZoomOut(View v)
     {
-        if (mapView.currentLevel == 0)
+        if (map.currentLevel == 0)
             return;
-        mapView.currentLevel--;
-        mapView.offsetX += mapView.width /2;
-        mapView.offsetY += mapView.height /2;
-        mapView.offsetX /= 2;
-        mapView.offsetY /= 2;
-        mapView.l = new ArrayList<Lines>();
-        mapView.invalidate();
+        map.currentLevel--;
+        map.offsetX += map.width /2;
+        map.offsetY += map.height /2;
+        map.offsetX /= 2;
+        map.offsetY /= 2;
+        map.l = new ArrayList<lines>();
+        map.invalidate();
     }
 
     public void onSettingsClick(View v)
     {
-        Intent intent = new Intent(this,SettingsActivity.class);
+        Intent intent = new Intent(this, settingsActivity.class);
         startActivity(intent);
     }
 }

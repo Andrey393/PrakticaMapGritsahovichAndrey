@@ -44,20 +44,20 @@ public class DBHelper extends SQLiteOpenHelper {
         String sqlInsert = "INSERT INTO settings VALUES (" +
                 "1,'http://tilemap.spbcoit.ru:7000',0.0,0.0,16,200,'s');";
         sqLiteDatabase.execSQL(sqlInsert);
-        sqlCreate = "CREATE TABLE layer (" +
+        sqlCreate = "CREATE TABLE Layer (" +
                 "id INT NOT NULL," +
                 "localName VARCHAR(20) NOT NULL," +
                 "name VARCHAR(40) NOT NULL," +
                 "isEnabled INT NOT NULL," +
                 "color INT NOT NULL);";
         sqLiteDatabase.execSQL(sqlCreate);
-        sqlInsert = "INSERT INTO layer VALUES (1,'Береговая-линия','coastline',0,"+ Color.BLACK+");";
+        sqlInsert = "INSERT INTO Layer VALUES (1,'Береговая-линия','coastline',0,"+ Color.BLACK+");";
         sqLiteDatabase.execSQL(sqlInsert);
-        sqlInsert = "INSERT INTO layer VALUES (2,'Реки','river',0,"+ Color.BLACK+");";
+        sqlInsert = "INSERT INTO Layer VALUES (2,'Реки','river',0,"+ Color.BLACK+");";
         sqLiteDatabase.execSQL(sqlInsert);
-        sqlInsert = "INSERT INTO layer VALUES (3,'Дороги','road',0,"+ Color.BLACK+");";
+        sqlInsert = "INSERT INTO Layer VALUES (3,'Дороги','road',0,"+ Color.BLACK+");";
         sqLiteDatabase.execSQL(sqlInsert);
-        sqlInsert = "INSERT INTO layer VALUES (4,'Железные-дороги','railroad',0,"+ Color.BLACK+");";
+        sqlInsert = "INSERT INTO Layer VALUES (4,'Железные-дороги','railroad',0,"+ Color.BLACK+");";
         sqLiteDatabase.execSQL(sqlInsert);
     }
 
@@ -67,7 +67,7 @@ public class DBHelper extends SQLiteOpenHelper {
         int enabled = 0;
         if (isChecked)
             enabled = 1;
-        String sql = "UPDATE layer " +
+        String sql = "UPDATE Layer " +
                 "SET isEnabled = " + enabled + "," +
                 "color = "+color +
                 " WHERE name = '" + name + "';";

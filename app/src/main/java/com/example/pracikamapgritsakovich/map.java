@@ -20,8 +20,8 @@ import model.Layer;
 import model.Line;
 import model.Settings;
 
-public class MapView extends SurfaceView {
-    ArrayList <Tile> tiles = new ArrayList<Tile>();
+public class map extends SurfaceView {
+    ArrayList <tile> tiles = new ArrayList<tile>();
     float lastX;
     float lastY;
     int currentLevel = 0;
@@ -45,9 +45,9 @@ public class MapView extends SurfaceView {
     int width;
     int height;
     public Activity ctx;
-    public ArrayList<Lines> l = new ArrayList<Lines>();
+    public ArrayList<lines> l = new ArrayList<lines>();
 
-    public MapView(Context context, AttributeSet attrs) {
+    public map(Context context, AttributeSet attrs) {
         super(context, attrs);
         p = new Paint();
         p.setStyle(Paint.Style.STROKE);
@@ -55,15 +55,15 @@ public class MapView extends SurfaceView {
         setWillNotDraw(false);
     }
 
-    Tile getTitle(int x, int y, int scale)
+    tile getTitle(int x, int y, int scale)
     {
         for (int i = 0; i < tiles.size(); i++)
         {
-            Tile t = tiles.get(i);
+            tile t = tiles.get(i);
             if (t.x == x && t.y == y && t.scale == scale)
                 return t;
         }
-        Tile nt = new Tile(x,y,scale,ctx);
+        tile nt = new tile(x,y,scale,ctx);
         tiles.add(nt);
         return nt;
     }
@@ -110,7 +110,7 @@ public class MapView extends SurfaceView {
                 for (Layer layer: Settings.layers) {
                     if (layer.isEnabled)
                     {
-                        Lines line = new Lines();
+                        lines line = new lines();
                         line.p = new Paint();
                         line.p.setStyle(Paint.Style.STROKE);
                         line.p.setColor(layer.color);
@@ -124,7 +124,7 @@ public class MapView extends SurfaceView {
         return false;
     }
 
-    void getLine(Lines line, int color, String name)
+    void getLine(lines line, int color, String name)
     {
         ApiHelper req = new ApiHelper(ctx){
             @Override
@@ -169,11 +169,11 @@ public class MapView extends SurfaceView {
                int y1 = y0 + tileHeight;
                if (!(rectIntersectsRect(0,0,canvas.getWidth() - 1,canvas.getHeight() - 1,x0,y0,x1,y1)))
                    continue;
-               Tile t = getTitle(x,y,levels[currentLevel]);
+               tile t = getTitle(x,y,levels[currentLevel]);
                if (t.bmp != null) canvas.drawBitmap(t.bmp, x0, y0, p);
               }
         try {
-            for (Lines lines:l) {
+            for (com.example.pracikamapgritsakovich.lines lines:l) {
                 for (int i = 0; i < lines.lines.size(); i++) {
                     float px0 = 0;
                     float py0 = 0;
